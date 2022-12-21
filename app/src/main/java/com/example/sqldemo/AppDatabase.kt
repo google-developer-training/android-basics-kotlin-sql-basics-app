@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 The Android Open Source Project
+ * Copyright (C) 2022 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,16 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.sqlbasics
+
+package com.example.sqldemo
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = arrayOf(CaliforniaPark::class), version = 1)
+@Database(entities = arrayOf(Email::class), version = 1)
 abstract class AppDatabase: RoomDatabase() {
-    abstract fun californiaParkDao(): CaliforniaParkDao
+    abstract fun emailDao(): EmailDao
 
     companion object {
         @Volatile
@@ -37,7 +38,7 @@ abstract class AppDatabase: RoomDatabase() {
                     AppDatabase::class.java,
                     "app_database"
                 )
-                    .createFromAsset("database/sql_basics.db")
+                    .createFromAsset("database/Email.db")
                     .build()
                 INSTANCE = instance
 

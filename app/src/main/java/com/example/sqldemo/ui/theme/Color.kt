@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 The Android Open Source Project
+ * Copyright (C) 2022 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,16 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.sqlbasics
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
+package com.example.sqldemo.ui.theme
 
-@Dao
-interface CaliforniaParkDao {
-    @Insert
-    suspend fun insertAll(parks: List<CaliforniaPark>)
-    @Query("SELECT * FROM park")
-    suspend fun getAll(): List<CaliforniaPark>
-}
+import androidx.compose.ui.graphics.Color
+
+val Purple200 = Color(0xFFBB86FC)
+val Purple500 = Color(0xFF6200EE)
+val Purple700 = Color(0xFF3700B3)
+val Teal200 = Color(0xFF03DAC5)

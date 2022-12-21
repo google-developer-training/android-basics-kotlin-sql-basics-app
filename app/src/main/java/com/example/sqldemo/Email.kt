@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 The Android Open Source Project
+ * Copyright (C) 2022 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,19 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.sqlbasics
+
+package com.example.sqldemo
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "park")
-data class CaliforniaPark(
+@Entity(tableName = "email")
+data class Email(
     @PrimaryKey(autoGenerate = true) val id: Int,
-    @ColumnInfo(name = "name") val name: String,
-    @ColumnInfo(name = "city") val city: String,
-    @ColumnInfo(name = "area_acres") val acres: Int,
-    @ColumnInfo(name = "park_visitors") val visitors: Int?,
-    @ColumnInfo(name = "established") val established: Long,
-    @ColumnInfo(name = "type") val type: String
+    @ColumnInfo(name = "subject") val subject: String,
+    @ColumnInfo(name = "sender") val sender: String,
+    @ColumnInfo(name = "folder") val folder: String,
+    @ColumnInfo(name = "starred") val starred: Boolean,
+    @ColumnInfo(name = "read") val read: Boolean,
+    @ColumnInfo(name = "received") val received: Int
 )

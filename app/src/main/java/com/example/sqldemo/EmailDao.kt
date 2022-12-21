@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 The Android Open Source Project
+ * Copyright (C) 2022 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,19 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.sqlbasics
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+package com.example.sqldemo
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        GlobalScope.launch {
-            AppDatabase.getDatabase(applicationContext).californiaParkDao().getAll()
-        }
-    }
+import androidx.room.Dao
+import androidx.room.Query
+
+@Dao
+interface EmailDao {
+    @Query("SELECT * FROM email")
+    suspend fun getAll(): List<Email>
 }
